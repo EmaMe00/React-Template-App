@@ -1,0 +1,5 @@
+Crea progetto con typescript: npx create-react-app my-app --template typescript
+Installa pacchetto router: npm i -D react-router-dom
+Installare Bootstrap: npm install bootstrap
+
+Rimuovere il tag <React.StrictMode> da intex.tsx per eliminare il doppio refresh della useEffect

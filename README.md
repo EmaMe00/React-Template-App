@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# Come creare lo stesso progetto se non si vuole copiare questo 
+
+Crea progetto con typescript: npx create-react-app my-app --template typescript
+
+Installa pacchetto router: npm i -D react-router-dom
+
+Installare Bootstrap: npm install bootstrap
+
+Rimuovere il tag <React.StrictMode> da intex.tsx per eliminare il doppio refresh della useEffect
+
+# Documentazione REACT
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

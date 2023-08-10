@@ -2,4 +2,9 @@ Crea progetto con typescript: npx create-react-app my-app --template typescript
 Installa pacchetto router: npm i -D react-router-dom
 Installare Bootstrap: npm install bootstrap
 
-Rimuovere il tag <React.StrictMode> da intex.tsx per eliminare il doppio refresh della useEffect
+Quando si utilizza la useEffect per controllare delle operazioni all'avvio della pagina, se si tiene la
+modalità <React.StrictMode> in index.tsx, si vedrà che questa viene eseguita due volte, questo perchè
+da React 18 viene applicato un controllo di sicurezza che monta, smonta, e rimonta il componente.
+Inoltre questa modalità effettua altri controlli che ci inducono a seguire le "best practice" (vedi esempio su firstPage.tsx, la funzione setToggleDescription).
+Rimuovere il tag <React.StrictMode> da root.render in intex.tsx se si vuole eliminare il doppio refresh della useEffect (sconsigliato)
+Documentazione StrictMode: https://legacy.reactjs.org/docs/strict-mode.html#ensuring-reusable-state

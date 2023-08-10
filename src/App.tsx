@@ -21,8 +21,8 @@ const AppRoot = () => {
 
 function App() {
 
-    //Creo un contatore che condividerò attraverso un contesto
-    const [counter,setCounter] = useState(0)
+  //Creo un contatore che condividerò attraverso un contesto
+  const [counter,setCounter] = useState(0)
 
   return (
       /* Inserisco il contesto come wrapper di altri elementi,

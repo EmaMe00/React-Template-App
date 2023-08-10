@@ -44,18 +44,27 @@ const FirstPage = () => {
         * quindi dobbiamo utilizzare un arrow function all'interno della setCards
         * per utilizzare l'ultimo stato delle card
         * */
-        setCards((cards) => {
+        setCards((lastCards) => {
             /*Il metodo map() è una funzione degli array in JavaScript che viene
             utilizzata per trasformare ogni elemento di un array creando un
             nuovo array con i risultati della trasformazione. Non modifica
             l'array originale ma restituisce un nuovo array con gli elementi trasformati.
             * */
-            const updatedCards = cards.map((card) => {
-                //Cambio la bisibilità alla descrizione della card
-                if (card.title === myTitle) {
-                    card.toggleDescription = !card.toggleDescription;
+            const updatedCards = lastCards.map((card) => {
+                /* Con la sintassi {...card} sto ricopiando un oggetto, questo viene fatto perchè,
+                dato che l'oggetto card (che è un oggetto creato con una useState) potrebbe essere modificato,
+                React vuole che ci si lavori con delle copie, altrimenti si potrebbero avere degli errori.
+                Quindi quando dobbiamo modificare un oggetto, ne modifichiamo una sua copia e poi lo assegnamo
+                una volta effettuate tutte le modifiche. In StrictMode questa procedura è
+                obbligatoria altrimenti il componente non funzionerà, senza la StrictMode funziona anche senza
+                questa tecnica, ma è buona prassi seguire queste indicazioni.
+                * */
+                const cardtmp = {...card}
+                //Cambio la visibilità alla descrizione della card
+                if (cardtmp.title === myTitle) {
+                    cardtmp.toggleDescription = !cardtmp.toggleDescription;
                 }
-                return card;
+                return cardtmp;
             });
             return updatedCards;
         });

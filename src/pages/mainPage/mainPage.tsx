@@ -5,12 +5,9 @@ import {MainContext} from "../../context/context";
 import {testGet, testPost} from "../../request/testRequest/api.testRequest";
 const MainPage = () => {
 
-    /* Faccio delle chiamate API di test appena si carica la pagina*/
+    /* Scrivo un log appena si carica la pagina*/
     useEffect(() => {
-        //Faccio una get senza passare il token
-        testGet("")
-        //Faccio una post dove non invio ne token ne dati
-        testPost("",null)
+       console.log("Pagina caricata correttamente !")
     },[])
 
     /* Variabile che contiene e gestisce il contenuto della prima text box */
@@ -54,6 +51,14 @@ const MainPage = () => {
         console.log(isChecked)
     };
 
+    /* Faccio due chiamate API */
+    const apiCall = () => {
+        //Faccio una get senza passare il token
+        testGet("")
+        //Faccio una post dove non invio ne token ne dati
+        testPost("",null)
+    }
+
     return (
         <div className={style.mainMargin}>
             <h1>React Hooks</h1>
@@ -87,6 +92,10 @@ const MainPage = () => {
             <h5> Context </h5>
             <p>{context.counter}</p>
             <button type="button" className="btn btn-primary"  onClick={changeCounter}>Click Me!</button>
+
+            <br/><br/>
+            <h5> API CALL (see console)</h5>
+            <button type="button" className="btn btn-primary"  onClick={apiCall}>Click Me!</button>
         </div>
     )
 }
